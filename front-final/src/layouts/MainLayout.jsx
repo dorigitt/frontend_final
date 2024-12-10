@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
+import HomePage from '../pages/ShopPage';
 import CartPage from '../pages/CartPage';
 import {
   MenuFoldOutlined,
@@ -29,7 +29,7 @@ const MainLayout = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Home Page',
+              label: 'Shop',
               onClick:()=>{
                 navigate("/")
             }

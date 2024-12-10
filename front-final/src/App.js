@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
+import { BrowserRouter as Router } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import { CartProvider } from './context/CartContext'; // Import CartProvider
 
 const App = () => {
   return (
+    <CartProvider> {/* Wrap the entire app */}
       <Router>
-        <MainLayout/>
+        <MainLayout />
       </Router>
-     
+    </CartProvider>
   );
 };
 
