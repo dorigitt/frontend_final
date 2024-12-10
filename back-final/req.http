@@ -1,0 +1,11 @@
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+    "name":"shirt5",
+    "price": 400,
+    "coverImageUrl":"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+}
+
+###
+GET http://localhost:8080/products
