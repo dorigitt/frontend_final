@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from '../pages/ShopPage';
 import CartPage from '../pages/CartPage';
+import CheckoutPage from '../pages/CheckoutPage';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  ShoppingCartOutlined,
+  ShoppingOutlined
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -24,11 +26,11 @@ const MainLayout = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={[window.location.pathname === "/" ? '1' : '2']}
           items={[
             {
               key: '1',
-              icon: <UserOutlined />,
+              icon: <ShoppingOutlined />,
               label: 'Shop',
               onClick:()=>{
                 navigate("/")
@@ -36,15 +38,15 @@ const MainLayout = () => {
             },
             {
               key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'Cart Page',
+              icon: <ShoppingCartOutlined />,
+              label: 'Cart ',
               onClick:()=>{
                 navigate("/cart")
             }
             },
             {
               key: '3',
-              icon: <UploadOutlined />,
+              icon: <UserOutlined />,
               label: 'My profile',
             },
           ]}
@@ -80,6 +82,7 @@ const MainLayout = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
         </Content>
       </Layout>

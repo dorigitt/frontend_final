@@ -1,9 +1,11 @@
 import React from 'react';
 import { List, Button, InputNumber } from 'antd';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const navigate = useNavigate();
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -39,7 +41,9 @@ const CartPage = () => {
       />
       <div style={{ marginTop: '20px', textAlign: 'right' }}>
         <h3>Total Amount: ${calculateTotal()}</h3>
-        <Button type="primary" size="large">Proceed to Checkout</Button>
+        <Button type="primary" size="large" onClick={() => navigate('/checkout')}>
+          Proceed to Checkout
+        </Button>
       </div>
     </div>
   );

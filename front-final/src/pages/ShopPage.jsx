@@ -17,7 +17,7 @@ export default function HomePage() {
         <h1>Shop</h1>
         <div className = "products">
             {products.map((product)=>{
-                return <ProductCard key={product.id} coverImageUrl={product.image} title={product.title} price={product.price} />
+                return <ProductCard key={product.id} id={product.id} coverImageUrl={product.coverimageurl} title={product.name} price={product.price} description={product.description} />
             })}
         </div>
         

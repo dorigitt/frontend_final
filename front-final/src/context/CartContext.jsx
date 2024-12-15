@@ -25,6 +25,7 @@ export const CartProvider = ({ children }) => {
         return [...prevCartItems, { ...product, quantity: 1 }];
       }
     });
+    console.log(cartItems)
   };
   
 
@@ -53,3 +54,4 @@ export const useCart = () => {
   }
   return context;
 };
+
